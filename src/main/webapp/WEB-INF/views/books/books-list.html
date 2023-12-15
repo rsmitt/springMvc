@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <script th:src="@{/static/js/main.js}"></script>
+</head>
+<body>
+
+<div th:replace="fragments/fragments :: header"></div>
+
+<div id="content">
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Published year</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tr th:each="book, status: ${books}" th:style="${status.odd} ? 'font-weight: bold;'">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.year}"></td>
+            <td><a th:href="@{/book/edit/{id}(id=${book.id})}">Edit</a></td>
+        </tr>
+    </table>
+</div>
+
+<div th:replace="fragments/fragments :: footer"></div>
+
+</body>
+</html>

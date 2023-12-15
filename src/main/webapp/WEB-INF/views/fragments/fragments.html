@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library | Home</title>
+</head>
+<body>
+
+<div class="div" th:fragment="header">
+    Library name and logo
+</div>
+
+<div class="div" th:fragment="footer" th:text="|Copyright &copy ${#dates.year(#dates.createNow())}|">
+</div>
+
+</body>
+</html>

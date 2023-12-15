@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" th:href="@{/static/css/style.css}">
+  <script th:src="@{/static/js/main.js}"></script>
+</head>
+<body>
+
+<div th:replace="fragments/fragments :: header"></div>
+
+<div id="content">
+  Opps.. <span th:text="${message}"></span><br/>
+  <p th:text="|url: ${url}|"></p>
+</di>
+
+<div th:replace="fragments/fragments :: footer"></div>
+
+</body>
+</html>

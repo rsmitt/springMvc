@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:text="|Cart has ${cart.quantity} products|"></span>
+
+<div th:object="${cart}">
+    <span th:text="|Cart has *{quantity} products, price *{price}|"></span>
+</div>
+
+<div th:with="totalPrice=${cart.quantity * cart.price}">
+    <span th:text="|Total price: ${totalPrice}|"></span>
+</div>
+
+<div th:text="${cart.quantity > 0} ? 'Cart has products' : 'Cart is empty'"></div>
+
+</body>
+</html>

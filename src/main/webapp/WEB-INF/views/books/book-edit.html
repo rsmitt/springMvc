@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <script th:src="@{/static/js/main.js}"></script>
+</head>
+<body>
+
+<div th:replace="fragments/fragments :: header"></div>
+
+<div id="content">
+    <h2>Edit book</h2>
+    <div class="form">
+    <form th:action="@{/book/update}" method="post" th:object="${book}">
+
+        <input type="text" name="title" placeholder="id" th:field="*{id}" disabled /><br/>
+
+        <input type="text" name="title" placeholder="title" th:field="*{title}"/><br/>
+        <div th:if="#{fields.hasErrors('title')}" th:errors="*{title}" class="error"></div>
+
+        <input type="text" name="year" placeholder="year" th:field="*{year}"/><br/>
+        <div th:if="#{fields.hasErrors('year')}" th:errors="*{year}" class="error"></div>
+
+        <input type="submit" value="update" />
+    </form>
+    </div>
+</div>
+
+<div th:replace="fragments/fragments :: footer"></div>
+
+</body>
+</html>
